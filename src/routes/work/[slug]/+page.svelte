@@ -2,8 +2,10 @@
 	export let data;
 </script>
 
-<section class="mx-auto grid h-full grid-cols-1 gap-y-5 lg:grid-cols-2 lg:gap-y-0">
-	<div class="col-span-1 p-10">
+<section
+	class="mx-auto flex h-full grid-cols-1 flex-col-reverse gap-y-5 pb-5 lg:flex-row lg:gap-y-0 lg:py-0"
+>
+	<div class="w-full px-2.5 lg:w-1/2 lg:px-10">
 		<h1 class="font-serif text-5xl font-bold lg:text-8xl">{data.project.title}</h1>
 
 		{#if data.project.description}
@@ -53,7 +55,7 @@
 		{/if}
 	</div>
 	<div
-		class="col-span-1 flex h-80 gap-5 gap-x-5 overflow-y-scroll scrollbar-thin scrollbar-thumb-blue-700 lg:h-full lg:max-h-screen lg:flex-col"
+		class="flex h-80 w-full gap-5 gap-x-5 overflow-y-scroll scrollbar-thin scrollbar-thumb-blue-700 lg:h-full lg:max-h-screen lg:w-1/2 lg:flex-col"
 	>
 		{#each data.project.images as image, index}
 			<img src={image.url} alt={image.alt} class="h-auto w-full object-contain" />

@@ -5,10 +5,14 @@
 	export let url = '';
 </script>
 
-<li class="tw-animation w-full p-5 odd:rotate-3 even:-rotate-3 hover:rotate-0">
-	<a href={`/work/${slug}`}>
-		<p class="text-right text-base font-bold uppercase lg:text-lg">{year}</p>
-		<img src={url} alt={title} class="w-[32rem]" />
-		<h2 class="text-base font-bold uppercase lg:text-lg">{title}</h2>
+<li class="tw-animation">
+	<a href={`/work/${slug}`} class="grid grid-flow-col">
+		<div class="flex flex-col items-center justify-between p-0.5 tracking-wider">
+			<h2 class="tw-vertical-text text-base font-bold uppercase lg:text-lg">
+				{title}
+			</h2>
+			<h3 class="tw-vertical-text font-medium text-neutral-700">{year}</h3>
+		</div>
+		<img src={url} alt={title} />
 	</a>
 </li>
