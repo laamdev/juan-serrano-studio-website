@@ -55,10 +55,10 @@
 		{/if}
 	</div>
 	<div
-		class="flex h-80 w-full gap-5 gap-x-5 overflow-y-scroll scrollbar-thin scrollbar-thumb-blue-700 lg:h-full lg:max-h-screen lg:w-1/2 lg:flex-col"
+		class="flex h-full w-full gap-5 gap-x-5 overflow-y-scroll scrollbar-thin scrollbar-thumb-blue-700 lg:max-h-screen lg:w-1/2 lg:flex-col"
 	>
 		{#each data.project.images as image, index}
-			<img src={image.url} alt={image.alt} class="h-auto w-full object-contain" />
+			<img src={image.url} alt={image.alt} class="h-auto w-full object-cover lg:object-contain" />
 		{/each}
 	</div>
 </section>
