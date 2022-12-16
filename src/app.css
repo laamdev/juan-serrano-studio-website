@@ -1,0 +1,182 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	html {
+		@apply overflow-x-hidden scrollbar-none;
+	}
+	body {
+		@apply overflow-x-hidden scrollbar-none;
+	}
+	@font-face {
+		font-family: 'Neue Haas Grotesk Text';
+		font-style: normal;
+		font-weight: 400;
+		font-display: swap;
+		src: url(/fonts/neue-haas-grotesk/text/NHaasGroteskTXPro-55Rg.woff2) format('woff2');
+	}
+	@font-face {
+		font-family: 'Neue Haas Grotesk Text';
+		font-style: italic;
+		font-weight: 400;
+		font-display: swap;
+		src: url(/fonts/neue-haas-grotesk/text/NHaasGroteskTXPro-56It.woff2) format('woff2');
+	}
+	@font-face {
+		font-family: 'Neue Haas Grotesk Text';
+		font-style: normal;
+		font-weight: 500;
+		font-display: swap;
+		src: url(/fonts/neue-haas-grotesk/text/NHaasGroteskTXPro-65Md.woff2) format('woff2');
+	}
+	@font-face {
+		font-family: 'Neue Haas Grotesk Text';
+		font-style: italic;
+		font-weight: 500;
+		font-display: swap;
+		src: url(/fonts/neue-haas-grotesk/text/NHaasGroteskTXPro-66MdIt.woff2) format('woff2');
+	}
+	@font-face {
+		font-family: 'Neue Haas Grotesk Text';
+		font-style: normal;
+		font-weight: 700;
+		font-display: swap;
+		src: url(/fonts/neue-haas-grotesk/text/NHaasGroteskTXPro-75Bd.woff2) format('woff2');
+	}
+	@font-face {
+		font-family: 'Neue Haas Grotesk Text';
+		font-style: italic;
+		font-weight: 700;
+		font-display: swap;
+		src: url(/fonts/neue-haas-grotesk/text/NHaasGroteskTXPro-76BdIt.woff2) format('woff2');
+	}
+	@font-face {
+		font-family: 'Neue Haas Grotesk Display';
+		font-style: normal;
+		font-weight: 100;
+		font-display: swap;
+		src: url(/fonts/neue-haas-grotesk/display/NHaasGroteskDSPro-25Th.woff2) format('woff2');
+	}
+	@font-face {
+		font-family: 'Neue Haas Grotesk Display';
+		font-style: italic;
+		font-weight: 100;
+		font-display: swap;
+		src: url(/fonts/neue-haas-grotesk/display/NHaasGroteskDSPro-26ThIt.woff2) format('woff2');
+	}
+	@font-face {
+		font-family: 'Neue Haas Grotesk Display';
+		font-style: normal;
+		font-weight: 200;
+		font-display: swap;
+		src: url(/fonts/neue-haas-grotesk/display/NHaasGroteskDSPro-35XLt.woff2) format('woff2');
+	}
+	@font-face {
+		font-family: 'Neue Haas Grotesk Display';
+		font-style: italic;
+		font-weight: 200;
+		font-display: swap;
+		src: url(/fonts/neue-haas-grotesk/display/NHaasGroteskDSPro-36XLtIt.woff2) format('woff2');
+	}
+	@font-face {
+		font-family: 'Neue Haas Grotesk Display';
+		font-style: normal;
+		font-weight: 300;
+		font-display: swap;
+		src: url(/fonts/neue-haas-grotesk/display/NHaasGroteskDSPro-45Lt.woff2) format('woff2');
+	}
+	@font-face {
+		font-family: 'Neue Haas Grotesk Display';
+		font-style: italic;
+		font-weight: 300;
+		font-display: swap;
+		src: url(/fonts/neue-haas-grotesk/display/NHaasGroteskDSPro-46LtIt.woff2) format('woff2');
+	}
+	@font-face {
+		font-family: 'Neue Haas Grotesk Display';
+		font-style: normal;
+		font-weight: 400;
+		font-display: swap;
+		src: url(/fonts/neue-haas-grotesk/display/NHaasGroteskDSPro-55Rg.woff2) format('woff2');
+	}
+	@font-face {
+		font-family: 'Neue Haas Grotesk Display';
+		font-style: italic;
+		font-weight: 400;
+		font-display: swap;
+		src: url(/fonts/neue-haas-grotesk/display/NHaasGroteskDSPro-56It.woff2) format('woff2');
+	}
+	@font-face {
+		font-family: 'Neue Haas Grotesk Display';
+		font-style: normal;
+		font-weight: 500;
+		font-display: swap;
+		src: url(/fonts/neue-haas-grotesk/display/NHaasGroteskDSPro-65Md.woff2) format('woff2');
+	}
+	@font-face {
+		font-family: 'Neue Haas Grotesk Display';
+		font-style: italic;
+		font-weight: 500;
+		font-display: swap;
+		src: url(/fonts/neue-haas-grotesk/display/NHaasGroteskDSPro-66MdIt.woff2) format('woff2');
+	}
+	@font-face {
+		font-family: 'Neue Haas Grotesk Display';
+		font-style: normal;
+		font-weight: 700;
+		font-display: swap;
+		src: url(/fonts/neue-haas-grotesk/display/NHaasGroteskDSPro-75Bd.woff2) format('woff2');
+	}
+	@font-face {
+		font-family: 'Neue Haas Grotesk Display';
+		font-style: italic;
+		font-weight: 700;
+		font-display: swap;
+		src: url(/fonts/neue-haas-grotesk/display/NHaasGroteskDSPro-76BdIt.woff2) format('woff2');
+	}
+	@font-face {
+		font-family: 'Neue Haas Grotesk Display';
+		font-style: normal;
+		font-weight: 900;
+		font-display: swap;
+		src: url(/fonts/neue-haas-grotesk/display/NHaasGroteskDSPro-95Blk.woff2) format('woff2');
+	}
+	@font-face {
+		font-family: 'Neue Haas Grotesk Display';
+		font-style: italic;
+		font-weight: 90;
+		font-display: swap;
+		src: url(/fonts/neue-haas-grotesk/display/NHaasGroteskDSPro-96BlkIt.woff2) format('woff2');
+	}
+	@font-face {
+		font-family: 'Voyage';
+		font-style: normal;
+		font-weight: 400;
+		font-display: swap;
+		src: url(/fonts/voyage/voyage-regular.woff2) format('woff2');
+	}
+	@font-face {
+		font-family: 'Voyage';
+		font-style: normal;
+		font-weight: 700;
+		font-display: swap;
+		src: url(/fonts/voyage/voyage-bold.woff2) format('woff2');
+	}
+}
+
+@layer components {
+	.tw-animation {
+		@apply transition duration-300 ease-in-out;
+	}
+	/* For Webkit-based browsers (Chrome, Safari and Opera) */
+	.tw-scrollbar-hide::-webkit-scrollbar {
+		display: none;
+	}
+
+	/* For IE, Edge and Firefox */
+	.tw-scrollbar-hide {
+		-ms-overflow-style: none; /* IE and Edge */
+		scrollbar-width: none; /* Firefox */
+	}
+}
