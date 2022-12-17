@@ -1,13 +1,10 @@
 <script>
-	import Footer from './Footer.svelte';
 	import Header from './Header.svelte';
 	import '../app.css';
 </script>
 
-<!-- <Header /> -->
+<Header />
 
-<main class="h-screen">
+<main class="h-screen px-2.5 py-7 lg:p-10">
 	<slot />
 </main>
-
-<!-- <Footer /> -->
