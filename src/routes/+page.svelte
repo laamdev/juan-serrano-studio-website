@@ -9,6 +9,10 @@
 	// const { siteUrl, name: siteName, openGraphDefaultImage } = $siteMetadataStore || [];
 </script>
 
+<svelte:head>
+	<title>Juan Serrano Studio</title>
+</svelte:head>
+
 <div
 	class="mx-auto flex h-full grid-cols-1 flex-col justify-center gap-y-10 lg:grid-cols-2 lg:flex-row"
 >

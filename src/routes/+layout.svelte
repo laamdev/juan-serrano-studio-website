@@ -1,10 +1,17 @@
 <script>
 	import Header from './Header.svelte';
 	import '../app.css';
+	import PageTransition from './PageTransition.svelte';
+	/**
+	 * @type {{ pathname: any; }}
+	 */
+	 export let data;
 </script>
 
-<Header />
+<Header activePage={data.pathname} />
 
-<main class="h-screen px-2.5 py-7 lg:p-10">
-	<slot />
-</main>
+<PageTransition>
+	<main class="h-screen">
+		<slot />
+	</main>
+</PageTransition>

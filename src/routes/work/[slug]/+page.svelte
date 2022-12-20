@@ -3,9 +3,9 @@
 </script>
 
 <section
-	class="mx-auto flex flex-col-reverse gap-y-5 gap-x-10 pb-10 lg:h-full lg:flex-row lg:gap-y-0 lg:pb-0"
+	class="mx-auto flex flex-col-reverse gap-y-5 pb-10 lg:h-full lg:flex-row lg:gap-y-0 lg:pb-0"
 >
-	<div class="w-full lg:w-1/2">
+	<div class="w-full p-5 lg:w-1/2">
 		<h1 class="font-serif text-5xl font-bold lg:text-7xl">{data.project.title}</h1>
 
 		{#if data.project.description}

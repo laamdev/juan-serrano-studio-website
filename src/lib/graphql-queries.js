@@ -1,20 +1,5 @@
 import { gql } from 'graphql-request';
 
-export const projectsQuery = gql`
-	query GetProjects {
-		projects(orderBy: priority_ASC) {
-			id
-			title
-			slug
-			year
-			images {
-				alt
-				url(transformation: { document: { output: { format: webp } } })
-			}
-		}
-	}
-`;
-
 export const projectQuery = gql`
 	query GetProject($slug: String!) {
 		project(where: { slug: $slug }) {
@@ -30,6 +15,50 @@ export const projectQuery = gql`
 			year
 			price
 			stock
+		}
+	}
+`;
+
+export const projectsQuery = gql`
+	query GetProjects {
+		projects(orderBy: priority_ASC) {
+			id
+			title
+			slug
+			year
+			images {
+				alt
+				url(transformation: { document: { output: { format: webp } } })
+			}
+		}
+	}
+`;
+
+export const aboutQuery = gql`
+	query GetAbout {
+		abouts {
+			id
+			name
+			bio {
+				html
+			}
+			profilePicture {
+				alt
+				url(transformation: { document: { output: { format: webp } } })
+			}
+		}
+	}
+`;
+
+export const siteMetadataQuery = gql`
+	query GetProjectMetadatas {
+		projectMetadatas {
+			name
+			siteUrl
+			description
+			openGraphDefaultImage {
+				url(transformation: { image: { resize: { width: 1200, height: 630, fit: clip } } })
+			}
 		}
 	}
 `;
