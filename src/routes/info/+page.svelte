@@ -1,14 +1,13 @@
 <script>
 	import { PORTFOLIO_NAME } from '$lib/constants';
-	/**
-	 * @type {{ about: { name: any; bio?: any; profilePicture?: any; }; }}
-	 */
+
 	export let data;
+	console.log(JSON.stringify(data.info.about, null, 2));
 	const {
-		name,
-		bio: { html: bio },
-		profilePicture: { url: coverImageUrl, alt: coverImageAlt }
-	} = data.about;
+		ownerName,
+		ownerBio: { html: bio },
+		ownerPicture: { url: coverImageUrl, alt: coverImageAlt }
+	} = data.info.about;
 </script>
 
 <svelte:head>
@@ -22,7 +21,7 @@
 		<div class="prose lg:prose-lg">
 			{@html bio}
 		</div>
-		<h1 class="mt-5 font-serif text-2xl font-bold lg:text-4xl">— {name}</h1>
+		<h1 class="mt-5 font-serif text-2xl font-bold lg:text-4xl">— {ownerName}</h1>
 	</div>
 	<div class="flex w-full overflow-hidden lg:h-full lg:max-h-screen lg:w-1/2 lg:flex-col">
 		<img src={coverImageUrl} alt={coverImageAlt} class="object-cover" />

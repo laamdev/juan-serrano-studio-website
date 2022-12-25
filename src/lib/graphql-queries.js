@@ -34,17 +34,19 @@ export const projectsQuery = gql`
 	}
 `;
 
-export const aboutQuery = gql`
-	query GetAbout {
-		abouts {
-			id
-			name
-			bio {
-				html
-			}
-			profilePicture {
-				alt
-				url(transformation: { document: { output: { format: webp } } })
+export const infoQuery = gql`
+	query GetInfo {
+		infos {
+			about {
+				id
+				ownerBio {
+					html
+				}
+				ownerName
+				ownerPicture {
+					alt
+					url(transformation: { document: { output: { format: webp } } })
+				}
 			}
 		}
 	}
@@ -52,10 +54,16 @@ export const aboutQuery = gql`
 
 export const contactQuery = gql`
 	query GetContact {
-		contacts {
-			email
-			phone
-			instagram
+		infos {
+			contact {
+				email
+				phone
+				instagram
+				image {
+					alt
+					url(transformation: { document: { output: { format: webp } } })
+				}
+			}
 		}
 	}
 `;
