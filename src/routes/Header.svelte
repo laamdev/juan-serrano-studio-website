@@ -10,12 +10,7 @@
 >
 	<ul class="flex gap-x-5 rounded font-medium">
 		<li>
-			<a
-				href="/"
-				class={`${activePage.includes('work') && 'text-blue-700'} ${
-					activePage === '/' && 'text-blue-700'
-				}`}>Proyectos</a
-			>
+			<a href="/" class={`${activePage === '/' && 'text-blue-700'}`}>Proyectos</a>
 		</li>
 		<li>
 			<a href="/info" class={`${activePage.includes('info') ? 'text-blue-700' : ''}`}>Info</a>
