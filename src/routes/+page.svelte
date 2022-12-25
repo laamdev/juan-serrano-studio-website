@@ -1,6 +1,9 @@
 <script>
 	import Card from './Card.svelte';
 
+	/**
+	 * @type {{ projects: any; }}
+	 */
 	export let data;
 	// let pathname;
 	// onMount(async () => {
@@ -27,7 +30,7 @@
 		</div>
 	</div>
 	<div
-		class="col-span-1 flex h-96 flex-row gap-y-10 gap-x-20 scrollbar-thin scrollbar-thumb-blue-700 lg:h-full lg:w-1/2 lg:flex-col"
+		class="col-span-1 flex h-96 flex-row gap-x-5 scrollbar-thin scrollbar-thumb-blue-700 lg:h-full lg:w-1/2 lg:flex-col lg:gap-y-10"
 	>
 		{#each data.projects as { title, slug, year, images }, index}
 			<Card {title} {slug} {year} url={images[0].url} />

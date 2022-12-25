@@ -1,6 +1,18 @@
 <script>
+	import DetailContainer from './DetailContainer.svelte';
+	import PriceContainer from './PriceContainer.svelte';
+	import { PORTFOLIO_NAME } from '$lib/constants';
+	import StockContainer from './StockContainer.svelte';
+
+	/**
+	 * @type {{ project: { title: any; description: any; materials: any; price: any; year: any; stock: any; images: any; }; }}
+	 */
 	export let data;
 </script>
+
+<svelte:head>
+	<title>{data.project.title} | {PORTFOLIO_NAME}</title>
+</svelte:head>
 
 <section
 	class="mx-auto flex flex-col-reverse gap-y-5 pb-10 lg:h-full lg:flex-row lg:gap-y-0 lg:pb-0"
@@ -15,45 +27,33 @@
 		<hr class="mt-5 border-t-2 border-stone-900" />
 
 		{#if data.project.materials}
-			<div class="mt-10">
-				<p class="text-sm uppercase text-stone-700">Materiales</p>
-				<p class="text-xl">{data.project.materials}</p>
-			</div>
+			<DetailContainer label="Materiales" value={data.project.materials} />
 		{/if}
 
 		{#if data.project.price}
-			<div class="mt-10">
-				<p class="text-sm uppercase text-stone-700">Precio</p>
-				<div class="flex items-center gap-x-2.5">
-					<p class="text-xl">desde €{data.project.price}</p>
-					<a
-						href="mailto:jserranopalencia@gmail.com"
-						class="tw-animation rounded-full bg-blue-700 px-3 py-1.5 text-xs font-medium uppercase tracking-wider text-white hover:bg-blue-800"
-						>Encargar</a
-					>
-				</div>
-			</div>
+			<PriceContainer
+				label="Precio"
+				value={data.project.price}
+				emailAddress="jserranopalencia@gmail.com"
+				emailSubject={`Encargar ${data.project.title}.`}
+				emailBody={`Hola, estoy interesado en encargar la construcción de un ${data.project.title}.`}
+				emailButtonLabel="Encargar"
+			/>
 		{/if}
 
 		{#if data.project.year}
-			<div class="mt-10">
-				<p class="text-sm uppercase text-stone-700">Año</p>
-				<p class="text-xl">{data.project.year}</p>
-			</div>
+			<DetailContainer label="Año" value={data.project.year} />
 		{/if}
 
 		{#if data.project.stock}
-			<div class="mt-10 flex items-center gap-x-2.5 text-xl">
-				<p>
-					<span class="font-medium">{data.project.stock}</span>
-					<span class="text-stone-700">unidad lista en stock</span>
-				</p>
-				<a
-					href="mailto:jserranopalencia@gmail.com"
-					class="tw-animation rounded-full bg-blue-700 px-3 py-1.5 text-xs font-medium uppercase tracking-wider text-white hover:bg-blue-800"
-					>Reservar</a
-				>
-			</div>
+			<StockContainer
+				label="Stock"
+				value={data.project.stock}
+				emailAddress="jserranopalencia@gmail.com"
+				emailSubject={`Reservar ${data.project.title}.`}
+				emailBody={`Hola, estoy interesado en reservar una de las unidades de ${data.project.title} que está en stock.`}
+				emailButtonLabel="Reservar"
+			/>
 		{/if}
 	</div>
 	<div

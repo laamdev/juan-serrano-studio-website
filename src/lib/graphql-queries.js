@@ -50,6 +50,16 @@ export const aboutQuery = gql`
 	}
 `;
 
+export const contactQuery = gql`
+	query GetContact {
+		contacts {
+			email
+			phone
+			instagram
+		}
+	}
+`;
+
 export const siteMetadataQuery = gql`
 	query GetProjectMetadatas {
 		projectMetadatas {
