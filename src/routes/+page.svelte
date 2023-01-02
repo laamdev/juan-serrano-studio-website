@@ -1,7 +1,6 @@
 <script>
 	import { PORTFOLIO_NAME, PORTFOLIO_TAGLINE } from '$lib/constants';
 	import Card from './Card.svelte';
-
 	/**
 	 * @type {{ projects: any; }}
 	 */
@@ -29,7 +28,7 @@
 		</div>
 	</div>
 	<div
-		class="flex flex-row gap-x-5 scrollbar-thin scrollbar-thumb-blue-700 lg:h-full lg:flex-col lg:gap-y-10"
+		class="row-span-1 flex flex-col gap-x-5 gap-y-5 scrollbar-thin scrollbar-thumb-blue-700 lg:h-full lg:flex-col lg:gap-y-10"
 	>
 		{#each data.projects as { title, slug, year, images }, index}
 			<Card {title} {slug} {year} url={images[0].url} />
