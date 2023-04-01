@@ -19,16 +19,19 @@ export const projectQuery = gql`
 	}
 `;
 
-export const projectsQuery = gql`
-	query GetProjects {
-		projects(orderBy: priority_ASC) {
-			id
-			title
-			slug
-			year
-			images {
-				alt
-				url(transformation: { document: { output: { format: webp } } })
+export const homePageQuery = gql`
+	query GetHomePage {
+		homePages(first: 1) {
+			featuredProjects {
+				description
+				id
+				images(first: 1) {
+					alt
+					url(transformation: { document: { output: { format: webp } } })
+				}
+				title
+				slug
+				year
 			}
 		}
 	}

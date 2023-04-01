@@ -5,7 +5,7 @@
 	export let url = '';
 </script>
 
-<a href={`/work/${slug}`} class="tw-animation relative flex max-w-full">
+<a href={`/work/${slug}`} class="tw-animation relative flex min-w-full">
 	<h2
 		class="tw-vertical-text bg absolute flex items-baseline gap-x-2.5 bg-stone-50 bg-opacity-50 py-2.5 drop-shadow-lg backdrop-blur-lg"
 	>
@@ -16,5 +16,5 @@
 			{year}
 		</span>
 	</h2>
-	<img src={url} alt={title} class="object-cover" />
+	<img src={url} alt={title} class="object-cover object-center" />
 </a>

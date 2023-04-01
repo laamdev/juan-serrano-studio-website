@@ -4,7 +4,7 @@
 
 @layer base {
 	html {
-		@apply bg-stone-100 overflow-x-hidden scrollbar-none;
+		@apply overflow-x-hidden bg-stone-100 scrollbar-none;
 	}
 
 	@font-face {
