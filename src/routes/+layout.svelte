@@ -5,7 +5,7 @@
 	/**
 	 * @type {{ pathname: any; }}
 	 */
-	 export let data;
+	export let data;
 </script>
 
 <Header activePage={data.pathname} />

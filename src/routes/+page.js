@@ -1,9 +1,9 @@
-import { client } from "$lib/graphql-client";
-import { projectsQuery } from "$lib/graphql-queries";
+import { client } from '$lib/graphql-client';
+import { homePageQuery } from '$lib/graphql-queries';
 
 export const load = async () => {
-	const { projects } = await client.request(projectsQuery);
+	const { homePages } = await client.request(homePageQuery);
 	return {
-		projects,
+		homePages
 	};
 };

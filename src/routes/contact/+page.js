@@ -1,8 +1,8 @@
 import { client } from '$lib/graphql-client';
-import { infoQuery } from '$lib/graphql-queries';
+import { contactQuery } from '$lib/graphql-queries';
 
 export const load = async () => {
-	const { infos } = await client.request(infoQuery);
+	const { infos } = await client.request(contactQuery);
 	return {
 		info: infos[0]
 	};

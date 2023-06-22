@@ -19,32 +19,53 @@ export const projectQuery = gql`
 	}
 `;
 
-export const projectsQuery = gql`
-	query GetProjects {
-		projects(orderBy: priority_ASC) {
-			id
-			title
-			slug
-			year
-			images {
-				alt
-				url(transformation: { document: { output: { format: webp } } })
+export const homePageQuery = gql`
+	query GetHomePage {
+		homePages(first: 1) {
+			featuredProjects {
+				description
+				id
+				images(first: 1) {
+					alt
+					url(transformation: { document: { output: { format: webp } } })
+				}
+				title
+				slug
+				year
 			}
 		}
 	}
 `;
 
-export const aboutQuery = gql`
-	query GetAbout {
-		abouts {
-			id
-			name
-			bio {
-				html
+export const infoQuery = gql`
+	query GetInfo {
+		infos {
+			about {
+				id
+				ownerBio {
+					html
+				}
+				ownerName
+				ownerPicture {
+					alt
+					url(transformation: { document: { output: { format: webp } } })
+				}
 			}
-			profilePicture {
-				alt
-				url(transformation: { document: { output: { format: webp } } })
+		}
+	}
+`;
+
+export const contactQuery = gql`
+	query GetContact {
+		infos {
+			contact {
+				email
+				phone
+				instagram
+				image {
+					alt
+					url(transformation: { document: { output: { format: webp } } })
+				}
 			}
 		}
 	}
