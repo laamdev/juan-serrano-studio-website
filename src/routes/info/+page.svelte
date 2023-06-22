@@ -3,6 +3,7 @@
 	import '@mux/mux-video';
 
 	export let data;
+	console.log(JSON.stringify(data.info.about, null, 2));
 	const {
 		ownerName,
 		ownerBio: { html: bio },
