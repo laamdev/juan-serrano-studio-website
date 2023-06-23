@@ -43,6 +43,7 @@
 	"dependencies": {
 		"@mux/mux-video": "^0.15.4",
 		"@sveltejs/adapter-vercel": "^3.0.1",
-		"clsx": "^1.2.1"
+		"clsx": "^1.2.1",
+		"vitest": "^0.32.2"
 	}
 }
