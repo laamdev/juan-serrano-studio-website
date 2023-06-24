@@ -19,6 +19,14 @@ export const projectQuery = gql`
   }
 `
 
+export const projectsQuery = gql`
+  query GetProjects {
+    projects {
+      slug
+    }
+  }
+`
+
 export const homePageQuery = gql`
   query GetHomePage {
     homePages(first: 1) {

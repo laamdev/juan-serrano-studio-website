@@ -3,7 +3,7 @@ import Link from "next/link"
 
 export const Card = ({ project }: { project: any }) => {
   return (
-    <Link href={`/work/${project.url}`} className="w-full flex-none">
+    <Link href={`/work/${project.slug}`} className="w-full flex-none">
       <h2 className="tw-vertical-text absolute z-20 flex items-baseline gap-x-2.5 whitespace-nowrap bg-stone-50/50 py-2.5 drop-shadow-lg backdrop-blur-lg">
         <span className="inline-block text-lg font-bold uppercase tracking-wider md:text-xl">
           {project.title}

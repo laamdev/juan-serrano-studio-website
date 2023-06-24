@@ -38,7 +38,7 @@ export default async function BioPage() {
           src={about.ownerPicture.url}
           alt={about.ownerPicture.alt}
           fill
-          className="object-cover object-center"
+          className="object-cover object-center bg-blue-500"
         />
       </div>
     </section>
