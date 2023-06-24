@@ -14,7 +14,7 @@ export default async function Home() {
   const { featuredProjects } = await getHomePage()
 
   return (
-    <div className="grid h-screen grid-rows-2 gap-x-10 md:grid-cols-2 md:grid-rows-1">
+    <div className="grid grid-rows-2 md:h-screen md:grid-cols-2 md:grid-rows-1">
       <div className="relative col-span-1 mx-auto flex w-full items-center justify-center">
         <div>
           <h1 className="font-serif text-7xl md:text-9xl">
@@ -35,7 +35,7 @@ export default async function Home() {
         />
       </div>
 
-      <div className="relative col-span-1 flex w-full gap-5 overflow-x-auto md:flex-col md:overflow-y-auto md:overflow-x-hidden">
+      <div className="relative col-span-1 flex w-full gap-x-5 overflow-x-auto md:flex-col md:gap-y-10 md:overflow-y-auto md:overflow-x-hidden">
         {featuredProjects.map((project: any, projectIdx: number) => (
           <Card key={projectIdx} project={project} />
         ))}

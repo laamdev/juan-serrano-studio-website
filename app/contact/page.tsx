@@ -19,8 +19,8 @@ const getContactPage = async () => {
 export default async function ContactPage() {
   const { contact } = await getContactPage()
   return (
-    <section className="mx-auto grid h-screen grid-rows-2 md:grid-cols-2 md:grid-rows-1">
-      <ul className="col-span-1 flex flex-col place-content-center gap-y-5 px-5 font-serif text-6xl font-bold md:w-1/2 md:px-10 md:text-7xl">
+    <section className="mx-auto grid min-h-screen grid-rows-2 overflow-y-auto md:h-screen md:grid-cols-2 md:grid-rows-1">
+      <ul className="col-span-1 flex flex-col place-content-center gap-y-5 px-5 pb-28 pt-10 font-serif text-5xl font-bold md:w-1/2 md:px-10 md:py-0 md:text-7xl">
         <li className="tw-animation hover:text-blue-700">
           <a href={`mailto:${contact.email}`}>Email</a>
         </li>

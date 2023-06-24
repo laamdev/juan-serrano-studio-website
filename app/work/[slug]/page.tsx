@@ -77,13 +77,7 @@ export default async function WorkPage({
         height={560}
         className="fixed right-5 top-5 z-50 hidden h-24 w-24 animate-spin-slow md:block"
       />
-      <Image
-        src="/images/drag-icon.png"
-        alt="Drag icon."
-        width={560}
-        height={560}
-        className="fixed right-5 top-5 z-50 block h-16 w-16 animate-spin-slow md:hidden"
-      />
+
       <div className="w-full px-2.5 pb-10 md:w-1/2 md:p-10 md:pb-0">
         <h1 className="font-serif text-5xl font-bold md:text-7xl">
           {project.title}
@@ -93,31 +87,36 @@ export default async function WorkPage({
           {project.description}
         </p>
 
-        <hr className="mt-5 border-t-2 border-stone-900" />
+        <hr className="mt-5 border-t-2 border-blue-800" />
 
         <DetailContainer label="Materiales" value={project.materials} />
 
-        <PriceContainer
-          label="Precio"
-          value={project.price}
-          emailAddress="jserranopalencia@gmail.com"
-          emailSubject={`Encargar ${project.title}.`}
-          emailBody={`Hola, estoy interesado en encargar la construcción de un ${project.title}.`}
-          emailButtonLabel="Encargar"
-        />
+        {project.price && (
+          <PriceContainer
+            label="Precio"
+            value={project.price}
+            emailAddress="jserranopalencia@gmail.com"
+            emailSubject={`Encargar ${project.title}.`}
+            emailBody={`Hola, estoy interesado en encargar la construcción de un ${project.title}.`}
+            emailButtonLabel="Encargar"
+          />
+        )}
 
         <DetailContainer label="Año" value={project.year} />
 
-        <StockContainer
-          label="Stock"
-          value={project.stock}
-          emailAddress="jserranopalencia@gmail.com"
-          emailSubject={`Reservar ${project.title}.`}
-          emailBody={`Hola, estoy interesado en reservar una de las unidades de ${project.title} que está en stock.`}
-          emailButtonLabel="Reservar"
-        />
+        {project.stock && (
+          <StockContainer
+            label="Stock"
+            value={project.stock}
+            emailAddress="jserranopalencia@gmail.com"
+            emailSubject={`Reservar ${project.title}.`}
+            emailBody={`Hola, estoy interesado en reservar una de las unidades de ${project.title} que está en stock.`}
+            emailButtonLabel="Reservar"
+          />
+        )}
       </div>
-      <div className="scrollbar-thin scrollbar-thumb-blue-700 flex w-full gap-x-5 overflow-x-scroll sm:overflow-x-hidden md:h-full md:max-h-screen md:w-1/2 md:flex-col md:gap-y-10">
+
+      <div className="flex w-full gap-x-5 overflow-x-scroll sm:overflow-x-hidden md:h-full md:max-h-screen md:w-1/2 md:flex-col md:gap-y-10">
         {project.images.map(
           (img: { url: string; alt: string }, imgIdx: number) => (
             <Image
@@ -131,6 +130,13 @@ export default async function WorkPage({
             />
           )
         )}
+        <Image
+          src="/images/drag-icon.png"
+          alt="Drag icon."
+          width={560}
+          height={560}
+          className="absolute right-5 top-5 z-50 block h-16 w-16 animate-spin-slow md:hidden"
+        />
       </div>
     </section>
   )

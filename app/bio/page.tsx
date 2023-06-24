@@ -20,26 +20,27 @@ export default async function BioPage() {
   const { about } = await getBioPage()
 
   return (
-    <section className="mx-auto grid h-screen grid-rows-2 md:grid-cols-2 md:grid-rows-1">
+    <section className="grid h-screen md:grid-cols-2">
       <div className="col-span-1 px-2.5 py-5 md:overflow-y-scroll md:p-10">
-        <div className="prose">
+        <div className="prose prose-lg">
           <RichText content={about.ownerBio.raw.children} />
         </div>
         <h1 className="mt-5 font-serif text-2xl font-bold md:text-4xl">
           — {about.ownerName}
         </h1>
 
-        <div className="mt-10 pb-20 md:pb-10">
+        <div className="my-10 aspect-video bg-blue-800">
           <VideoPlayer src="https://res.cloudinary.com/brother-sailor/video/upload/v1687543184/Juan%20Serrano%20Studio/muebles_fqdjpe.mp4" />
         </div>
       </div>
-      <div className="relative col-span-1 row-start-1 md:row-start-auto">
+      <div className="relative col-span-1 row-start-1 md:row-start-auto md:overflow-y-hidden">
         <Image
           src={about.ownerPicture.url}
           alt={about.ownerPicture.alt}
-          fill
+          width={1080}
+          height={1920}
           priority
-          className="bg-blue-500 object-cover object-center"
+          className="bg-blue-800 object-cover object-center"
         />
       </div>
     </section>
