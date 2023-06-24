@@ -147,11 +147,11 @@ export const metadata: Metadata = {
     description:
       "Muebles artesanos creados por Juan Serrano, carpintero y ebanista basado en Madrid.",
 
-    url: "https://juanserranostudio.com",
+    url: "https://juanserrano.studio",
     siteName: "Juan Serrano Studio",
     images: [
       {
-        url: "https://juanserranostudio.com/og.jpg",
+        url: "https://juanserrano.studio/og.jpg",
         width: 1920,
         height: 1080,
       },
@@ -170,12 +170,12 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  // icons: {
-  //   icon: "/public/favicon/favicon.ico",
-  //   shortcut: "/public/favicon/favicon.ico",
-  //   apple: "/public/favicon/apple-touch-icon.png",
-  // },
-  // manifest: "/public/favicon/site.webmanifest",
+  icons: {
+    icon: "/public/favicon/favicon.ico",
+    shortcut: "/public/favicon/favicon.ico",
+    apple: "/public/favicon/apple-touch-icon.png",
+  },
+  manifest: "/public/favicon/site.webmanifest",
 }
 
 export default function RootLayout({
