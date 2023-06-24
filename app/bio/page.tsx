@@ -29,7 +29,7 @@ export default async function BioPage() {
           — {about.ownerName}
         </h1>
 
-        <div className="mt-10 bg-zinc-200 pb-20 md:pb-10">
+        <div className="mt-10 pb-20 md:pb-10">
           <VideoPlayer src="https://res.cloudinary.com/brother-sailor/video/upload/v1687543184/Juan%20Serrano%20Studio/muebles_fqdjpe.mp4" />
         </div>
       </div>
