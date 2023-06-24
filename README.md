@@ -1,3 +1,3 @@
 # Juan Serrano Studio
 
-Muebles Artesanos
+Muebles artesanos creados por Juan Serrano, carpintero y ebanista situado en Madrid.
