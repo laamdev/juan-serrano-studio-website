@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply bg-stone-100;
+  }
+}
+
+@layer components {
+  .tw-animation {
+    @apply transition duration-300 ease-in-out;
+  }
+  /* For Webkit-based browsers (Chrome, Safari and Opera) */
+  .tw-scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* For IE, Edge and Firefox */
+  .tw-scrollbar-hide {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .tw-vertical-text {
+    writing-mode: vertical-rl;
+    @apply rotate-180;
+  }
+}
