@@ -126,6 +126,7 @@ export default async function WorkPage({
               alt={img.alt}
               width={1080}
               height={1080}
+              priority={imgIdx === 0 ? true : false}
               className="h-auto w-screen bg-blue-800 object-cover md:w-full md:object-contain"
             />
           )
