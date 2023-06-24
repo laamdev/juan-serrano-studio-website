@@ -30,7 +30,7 @@ export default async function BioPage() {
         </h1>
 
         <div className="my-10 aspect-video bg-blue-800">
-          <VideoPlayer src="https://res.cloudinary.com/brother-sailor/video/upload/v1687543184/Juan%20Serrano%20Studio/muebles_fqdjpe.mp4" />
+          <VideoPlayer src={about.reelUrl} />
         </div>
       </div>
       <div className="relative col-span-1 row-start-1 md:row-start-auto md:overflow-y-hidden">

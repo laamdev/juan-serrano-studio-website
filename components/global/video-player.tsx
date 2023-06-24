@@ -9,7 +9,7 @@ export const VideoPlayer = ({ src }: { src: string }) => {
       width={1920}
       height={1080}
       metadata={{
-        video_title: "Juan Serrano Studio",
+        video_title: "Juan Serrano Studio video reel",
       }}
       controls
     />

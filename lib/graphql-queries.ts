@@ -61,6 +61,7 @@ export const bioQuery = gql`
           alt
           url(transformation: { document: { output: { format: webp } } })
         }
+        reelUrl
       }
     }
   }
