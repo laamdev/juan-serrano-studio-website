@@ -15,7 +15,7 @@ export async function generateStaticParams() {
   }))
 }
 
-export async function getProjectBySlug(params: any) {
+const getProjectBySlug = (params: any) => {
   const { project }: { project: any } = await client.request(projectQuery, {
     slug: params.slug,
   })
