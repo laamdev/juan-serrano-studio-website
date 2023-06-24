@@ -3,6 +3,7 @@ import { gql } from "graphql-request"
 export const projectQuery = gql`
   query GetProject($slug: String!) {
     project(where: { slug: $slug }) {
+      id
       title
       slug
       year
@@ -10,7 +11,10 @@ export const projectQuery = gql`
         alt
         url(transformation: { document: { output: { format: webp } } })
       }
-      description
+      summary
+      description {
+        raw
+      }
       materials
       year
       price
@@ -31,7 +35,6 @@ export const homePageQuery = gql`
   query GetHomePage {
     homePages(first: 1) {
       featuredProjects {
-        description
         id
         images(first: 1) {
           alt

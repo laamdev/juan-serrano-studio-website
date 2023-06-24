@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Image from "next/image"
 import { notFound } from "next/navigation"
+import { RichText } from "@graphcms/rich-text-react-renderer"
 
 import { client } from "@/lib/graphql-client"
 import { projectQuery, projectsQuery } from "@/lib/graphql-queries"
@@ -39,10 +40,10 @@ export async function generateMetadata({
 
   return {
     title: project.title,
-    description: project.description,
+    description: project.summary,
     openGraph: {
       title: project.title,
-      description: project.description,
+      description: project.summary,
       type: "article",
       url: `https://www.juanserrano.studio/${project.slug}`,
       images: [
@@ -54,7 +55,7 @@ export async function generateMetadata({
     twitter: {
       card: "summary_large_image",
       title: project.title,
-      description: project.description,
+      description: project.summary,
       images: [ogImage],
     },
   }
@@ -69,54 +70,64 @@ export default async function WorkPage({
   if (!project) notFound()
 
   return (
-    <section className="mx-auto flex flex-col-reverse gap-y-5 pb-10 md:h-full md:flex-row md:gap-y-0 md:pb-0">
+    <div className="grid md:h-screen md:grid-cols-2 md:grid-rows-1">
+      <div className="relative col-span-1 mb-10 flex w-full overflow-y-auto px-5 py-10">
+        <div>
+          <h1 className="font-serif text-5xl font-bold md:text-7xl">
+            {project.title}
+          </h1>
+          <p className="mt-2.5 text-xl text-stone-700 md:text-2xl">
+            {project.summary}
+          </p>
+          <hr className="mt-5 border-t-2 border-blue-800" />
+
+          <DetailContainer label="Materiales" value={project.materials} />
+          {project.price && (
+            <PriceContainer
+              label="Precio"
+              value={project.price}
+              emailAddress="jserranopalencia@gmail.com"
+              emailSubject={`Encargar ${project.title}.`}
+              emailBody={`Hola, estoy interesado en encargar la construcción de un ${project.title}.`}
+              emailButtonLabel="Encargar"
+            />
+          )}
+
+          <DetailContainer label="Año" value={project.year} />
+          {project.stock && (
+            <StockContainer
+              label="Stock"
+              value={project.stock}
+              emailAddress="jserranopalencia@gmail.com"
+              emailSubject={`Reservar ${project.title}.`}
+              emailBody={`Hola, estoy interesado en reservar una de las unidades de ${project.title} que está en stock.`}
+              emailButtonLabel="Reservar"
+            />
+          )}
+
+          {project.description && (
+            <>
+              <hr className="mt-5 border-t-2 border-blue-800" />
+
+              <div>
+                {project.description && (
+                  <div className="prose prose-lg mt-10">
+                    <RichText content={project.description.raw.children} />
+                  </div>
+                )}
+              </div>
+            </>
+          )}
+        </div>
+      </div>
       <Image
-        src="/images/scroll-icon.png"
-        alt="Scroll icon."
+        src="/images/drag-icon.png"
+        alt="Drag icon."
         width={560}
         height={560}
-        className="fixed right-5 top-5 z-50 hidden h-24 w-24 animate-spin-slow md:block"
+        className="absolute right-5 top-5 z-50 block h-20 w-20 animate-spin-slow rounded-full bg-blue-800 md:hidden"
       />
-
-      <div className="w-full px-2.5 pb-10 md:w-1/2 md:p-10 md:pb-0">
-        <h1 className="font-serif text-5xl font-bold md:text-7xl">
-          {project.title}
-        </h1>
-
-        <p className="mt-2.5 text-xl text-stone-700 md:text-2xl">
-          {project.description}
-        </p>
-
-        <hr className="mt-5 border-t-2 border-blue-800" />
-
-        <DetailContainer label="Materiales" value={project.materials} />
-
-        {project.price && (
-          <PriceContainer
-            label="Precio"
-            value={project.price}
-            emailAddress="jserranopalencia@gmail.com"
-            emailSubject={`Encargar ${project.title}.`}
-            emailBody={`Hola, estoy interesado en encargar la construcción de un ${project.title}.`}
-            emailButtonLabel="Encargar"
-          />
-        )}
-
-        <DetailContainer label="Año" value={project.year} />
-
-        {project.stock && (
-          <StockContainer
-            label="Stock"
-            value={project.stock}
-            emailAddress="jserranopalencia@gmail.com"
-            emailSubject={`Reservar ${project.title}.`}
-            emailBody={`Hola, estoy interesado en reservar una de las unidades de ${project.title} que está en stock.`}
-            emailButtonLabel="Reservar"
-          />
-        )}
-      </div>
-
-      <div className="flex w-full gap-x-5 overflow-x-scroll sm:overflow-x-hidden md:h-full md:max-h-screen md:w-1/2 md:flex-col md:gap-y-10">
+      <div className="relative col-span-1 row-start-1 flex gap-x-5 overflow-x-auto md:row-start-auto md:flex-col md:gap-y-10 md:overflow-y-auto md:overflow-x-hidden">
         {project.images.map(
           (img: { url: string; alt: string }, imgIdx: number) => (
             <Image
@@ -126,18 +137,108 @@ export default async function WorkPage({
               width={1080}
               height={1080}
               priority={imgIdx === 0 ? true : false}
-              className="h-auto w-screen bg-blue-800 object-cover md:w-full md:object-contain"
+              className="bg-blue-800 object-cover object-center"
+
+              // className="h-auto w-screen bg-blue-800 object-cover md:w-full md:object-contain"
             />
           )
         )}
-        <Image
-          src="/images/drag-icon.png"
-          alt="Drag icon."
-          width={560}
-          height={560}
-          className="absolute right-5 top-5 z-50 block h-16 w-16 animate-spin-slow md:hidden"
-        />
       </div>
-    </section>
+
+      <Image
+        src="/images/scroll-icon.png"
+        alt="Scroll icon."
+        width={560}
+        height={560}
+        className="fixed right-5 top-5 z-50 hidden h-24 w-24 animate-spin-slow rounded-full bg-blue-800 md:block"
+      />
+    </div>
+
+    // <div className="grid grid-rows-2 md:h-screen md:grid-cols-2 md:grid-rows-1">
+    //   <Image
+    //     src="/images/scroll-icon.png"
+    //     alt="Scroll icon."
+    //     width={560}
+    //     height={560}
+    //     className="fixed right-5 top-5 z-50 hidden h-24 w-24 animate-spin-slow md:block"
+    //   />
+
+    //   <div className="overflow-y-auto px-2.5 pb-10 md:p-10">
+    //     <h1 className="font-serif text-5xl font-bold md:text-7xl">
+    //       {project.title}
+    //     </h1>
+
+    //     <p className="mt-2.5 text-xl text-stone-700 md:text-2xl">
+    //       {project.summary}
+    //     </p>
+
+    //     <hr className="mt-5 border-t-2 border-blue-800" />
+
+    //     <DetailContainer label="Materiales" value={project.materials} />
+
+    //     {project.price && (
+    //       <PriceContainer
+    //         label="Precio"
+    //         value={project.price}
+    //         emailAddress="jserranopalencia@gmail.com"
+    //         emailSubject={`Encargar ${project.title}.`}
+    //         emailBody={`Hola, estoy interesado en encargar la construcción de un ${project.title}.`}
+    //         emailButtonLabel="Encargar"
+    //       />
+    //     )}
+
+    //     <DetailContainer label="Año" value={project.year} />
+
+    //     {project.stock && (
+    //       <StockContainer
+    //         label="Stock"
+    //         value={project.stock}
+    //         emailAddress="jserranopalencia@gmail.com"
+    //         emailSubject={`Reservar ${project.title}.`}
+    //         emailBody={`Hola, estoy interesado en reservar una de las unidades de ${project.title} que está en stock.`}
+    //         emailButtonLabel="Reservar"
+    //       />
+    //     )}
+
+    //     {project.description && (
+    //       <>
+    //         <hr className="mt-5 border-t-2 border-blue-800" />
+
+    //         <div>
+    //           {project.description && (
+    //             <div className="prose prose-lg mt-10">
+    //               <RichText content={project.description.raw.children} />
+    //             </div>
+    //           )}
+    //         </div>
+    //       </>
+    //     )}
+    //   </div>
+
+    //   <div className="col-span-1 row-start-1 flex gap-x-5 overflow-x-scroll md:row-start-auto md:h-full md:max-h-screen md:flex-col md:gap-y-10 md:overflow-y-hidden">
+    //     {project.images.map(
+    //       (img: { url: string; alt: string }, imgIdx: number) => (
+    //         <Image
+    //           key={imgIdx}
+    //           src={img.url}
+    //           alt={img.alt}
+    //           width={1080}
+    //           height={1080}
+    //           priority={imgIdx === 0 ? true : false}
+    //           className="bg-blue-800 object-cover object-center"
+
+    //           // className="h-auto w-screen bg-blue-800 object-cover md:w-full md:object-contain"
+    //         />
+    //       )
+    //     )}
+    //     <Image
+    //       src="/images/drag-icon.png"
+    //       alt="Drag icon."
+    //       width={560}
+    //       height={560}
+    //       className="absolute right-5 top-5 z-50 block h-16 w-16 animate-spin-slow md:hidden"
+    //     />
+    //   </div>
+    // </div>
   )
 }
