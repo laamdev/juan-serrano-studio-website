@@ -5,7 +5,7 @@ import { homePageQuery } from "@/lib/graphql-queries"
 import { Card } from "@/components/projects/card"
 
 const getHomePage = async () => {
-  const { homePages } = await client.request(homePageQuery)
+  const { homePages }: { homePages: any } = await client.request(homePageQuery)
 
   return homePages[0]
 }

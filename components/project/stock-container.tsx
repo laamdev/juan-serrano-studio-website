@@ -7,6 +7,13 @@ export const StockContainer = ({
   emailSubject,
   emailBody,
   emailButtonLabel,
+}: {
+  label: string
+  value: string
+  emailAddress: string
+  emailSubject: string
+  emailBody: string
+  emailButtonLabel: string
 }) => {
   return (
     <div className="mt-7 md:mt-10">

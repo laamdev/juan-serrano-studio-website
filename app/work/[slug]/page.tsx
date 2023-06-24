@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import Image from "next/image"
 import { notFound } from "next/navigation"
 
@@ -14,12 +15,49 @@ export async function generateStaticParams() {
   }))
 }
 
-const getProjectBySlug = async (params: any) => {
+export async function getProjectBySlug(params: any) {
   const { project }: { project: any } = await client.request(projectQuery, {
     slug: params.slug,
   })
 
   return project
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: any
+}): Promise<Metadata | undefined> {
+  const project = await getProjectBySlug(params)
+  if (!project) {
+    return
+  }
+
+  const ogImage = project.images[0].url
+    ? `https://www.juanserrano.studio/${project.images[0].url}`
+    : `https://www.juanserrano.studio/api/og?title=${project.title}`
+
+  return {
+    title: project.title,
+    description: project.description,
+    openGraph: {
+      title: project.title,
+      description: project.description,
+      type: "article",
+      url: `https://www.juanserrano.studio/${project.slug}`,
+      images: [
+        {
+          url: ogImage,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: project.title,
+      description: project.description,
+      images: [ogImage],
+    },
+  }
 }
 
 export default async function WorkPage({

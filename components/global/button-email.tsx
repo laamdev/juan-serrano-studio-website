@@ -3,6 +3,11 @@ export const ButtonEmail = ({
   emailSubject,
   emailBody,
   emailButtonLabel,
+}: {
+  emailAddress: string
+  emailSubject: string
+  emailBody: string
+  emailButtonLabel: string
 }) => {
   return (
     <a
