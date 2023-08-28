@@ -125,8 +125,10 @@ export default async function WorkPage({
       <Image
         src="/images/drag-icon.png"
         alt="Drag icon."
-        width={560}
-        height={560}
+        width={96}
+        height={96}
+        sizes="96px"
+        priority
         className="absolute right-5 top-5 z-50 block h-20 w-20 animate-spin-slow rounded-full bg-blue-800 md:hidden"
       />
       <div className="relative col-span-1 row-start-1 flex gap-x-5 overflow-x-auto md:row-start-auto md:flex-col md:gap-y-10 md:overflow-y-auto md:overflow-x-hidden">
@@ -136,10 +138,11 @@ export default async function WorkPage({
               key={imgIdx}
               src={img.url}
               alt={img.alt}
-              width={1080}
-              height={1080}
+              width={950}
+              height={950}
               priority={imgIdx === 0 ? true : false}
-              className="bg-blue-800 object-cover object-center"
+              sizes="(min-width: 780px) 50vw, calc(20vw - 16px)"
+              className="h-auto w-full bg-blue-800 object-cover object-center"
             />
           )
         )}
@@ -148,8 +151,10 @@ export default async function WorkPage({
       <Image
         src="/images/scroll-icon.png"
         alt="Scroll icon."
-        width={560}
-        height={560}
+        width={96}
+        height={96}
+        priority
+        sizes="96px"
         className="fixed right-5 top-5 z-50 hidden h-24 w-24 animate-spin-slow rounded-full bg-blue-800 md:block"
       />
     </div>

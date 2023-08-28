@@ -31,23 +31,27 @@ export default async function Home() {
         <Image
           src="/images/drag-icon.png"
           alt="Drag icon."
-          width={560}
-          height={560}
+          width={96}
+          height={96}
+          sizes="96px"
+          priority
           className="absolute -bottom-10 right-5 z-50 block h-20 w-20 animate-spin-slow rounded-full bg-blue-800 md:hidden"
         />
       </div>
 
       <div className="relative col-span-1 flex w-full gap-x-5 overflow-x-auto md:flex-col md:gap-y-10 md:overflow-y-auto md:overflow-x-hidden">
         {featuredProjects.map((project: any, projectIdx: number) => (
-          <Card key={projectIdx} project={project} />
+          <Card key={projectIdx} project={project} index={projectIdx} />
         ))}
       </div>
 
       <Image
         src="/images/scroll-icon.png"
         alt="Scroll icon."
-        width={560}
-        height={560}
+        width={96}
+        height={96}
+        sizes="96px"
+        priority
         className="fixed right-5 top-5 z-50 hidden h-24 w-24 animate-spin-slow rounded-full bg-blue-800 md:block"
       />
     </div>

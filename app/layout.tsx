@@ -82,42 +82,6 @@ const sans = localFont({
   variable: "--font-sans",
   display: "swap",
 })
-// // const sans = localFont({
-// //   src: [
-// //     {
-// //       path: "../public/fonts/neue-haas-grotesk/text/NHaasGroteskTXPro-55Rg.woff2",
-// //       weight: "400",
-// //       style: "normal",
-// //     },
-// //     {
-// //       path: "../public/fonts/neue-haas-grotesk/text/NHaasGroteskTXPro-56It.woff2",
-// //       weight: "400",
-// //       style: "italic",
-// //     },
-// //     {
-// //       path: "../public/fonts/neue-haas-grotesk/text/NHaasGroteskTXPro-65Md.woff2",
-// //       weight: "500",
-// //       style: "normal",
-// //     },
-// //     {
-// //       path: "../public/fonts/neue-haas-grotesk/text/NHaasGroteskTXPro-66MdIt.woff2",
-// //       weight: "500",
-// //       style: "italic",
-// //     },
-// //     {
-// //       path: "../public/fonts/neue-haas-grotesk/text/NHaasGroteskTXPro-75Bd.woff2",
-// //       weight: "700",
-// //       style: "normal",
-// //     },
-// //     {
-// //       path: "../public/fonts/neue-haas-grotesk/text/NHaasGroteskTXPro-76BdIt.woff2",
-// //       weight: "700",
-// //       style: "italic",
-// //     },
-// //   ],
-// //   variable: "--font-sans",
-// //   display: "swap",
-// // });
 
 const serif = localFont({
   src: [

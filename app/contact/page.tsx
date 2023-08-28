@@ -43,9 +43,10 @@ export default async function ContactPage() {
         <Image
           src={contact.image.url}
           alt="Hombre susteniendo una mesa de madera."
-          fill
+          width={960}
+          height={960}
           priority
-          className="bg-blue-800 object-cover object-center"
+          className="h-auto w-full bg-blue-800 object-cover object-center"
         />
       </div>
     </section>

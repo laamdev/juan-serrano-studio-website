@@ -39,10 +39,11 @@ export default async function BioPage() {
         <Image
           src={about.ownerPicture.url}
           alt={about.ownerPicture.alt}
-          width={1080}
-          height={1920}
+          width={960}
+          height={960}
           priority
-          className="bg-blue-800 object-cover object-center"
+          sizes="(min-width: 780px) 50vw, 100vw"
+          className="h-auto w-full bg-blue-800 object-cover object-center"
         />
       </div>
     </section>
