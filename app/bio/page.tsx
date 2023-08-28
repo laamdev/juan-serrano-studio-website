@@ -6,6 +6,8 @@ import { client } from "@/lib/graphql-client"
 import { bioQuery } from "@/lib/graphql-queries"
 import { VideoPlayer } from "@/components/global/video-player"
 
+export const revalidate = 60
+
 export const metadata: Metadata = {
   title: "Bio",
 }

@@ -4,6 +4,8 @@ import Image from "next/image"
 import { client } from "@/lib/graphql-client"
 import { contactQuery } from "@/lib/graphql-queries"
 
+export const revalidate = 60
+
 export const metadata: Metadata = {
   title: "Contacto",
   description:

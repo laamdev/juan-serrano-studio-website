@@ -9,6 +9,8 @@ import { DetailContainer } from "@/components/project/detail-container"
 import { PriceContainer } from "@/components/project/price-container"
 import { StockContainer } from "@/components/project/stock-container"
 
+export const revalidate = 60
+
 export async function generateStaticParams() {
   const { projects }: { projects: any[] } = await client.request(projectsQuery)
   return projects.map((project) => ({

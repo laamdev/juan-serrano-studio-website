@@ -4,6 +4,8 @@ import { client } from "@/lib/graphql-client"
 import { homePageQuery } from "@/lib/graphql-queries"
 import { Card } from "@/components/projects/card"
 
+export const revalidate = 60
+
 const getHomePage = async () => {
   const { homePages }: { homePages: any } = await client.request(homePageQuery)
 
