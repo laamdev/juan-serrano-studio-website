@@ -10,7 +10,9 @@
     "typecheck": "tsc --noEmit",
     "format:write": "prettier --write \"**/*.{ts,tsx,mdx}\" --cache",
     "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "scan": "pnpm dlx unlighthouse --site https://www.juanserrano.studio"
+
   },
   "dependencies": {
     "@graphcms/rich-text-react-renderer": "^0.6.1",

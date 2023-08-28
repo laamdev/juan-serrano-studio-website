@@ -17,7 +17,7 @@ export const StockContainer = ({
 }) => {
   return (
     <div className="mt-7 md:mt-10">
-      <h3 className="text-sm uppercase text-stone-700 md:text-base">{label}</h3>
+      <p className="text-sm uppercase text-stone-700 md:text-base">{label}</p>
       <div className="flex items-center gap-x-2.5 md:gap-x-5">
         <p className="text-lg md:text-xl">{value} unidad disponible</p>
         <ButtonEmail

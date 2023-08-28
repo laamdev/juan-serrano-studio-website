@@ -38,7 +38,7 @@ export default async function BioPage() {
       <div className="relative col-span-1 row-start-1 md:row-start-auto md:overflow-y-hidden">
         <Image
           src={about.ownerPicture.url}
-          alt={about.ownerPicture.alt}
+          alt="Juan Serrano"
           width={960}
           height={960}
           priority

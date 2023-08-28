@@ -138,7 +138,7 @@ export default async function WorkPage({
             <Image
               key={imgIdx}
               src={img.url}
-              alt={img.alt}
+              alt={project.title}
               width={950}
               height={950}
               // // sizes="(min-width: 780px) 50vw, 100vw"
