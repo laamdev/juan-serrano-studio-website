@@ -140,8 +140,6 @@ export default async function WorkPage({
               height={1080}
               priority={imgIdx === 0 ? true : false}
               className="bg-blue-800 object-cover object-center"
-
-              // className="h-auto w-screen bg-blue-800 object-cover md:w-full md:object-contain"
             />
           )
         )}
@@ -155,92 +153,5 @@ export default async function WorkPage({
         className="fixed right-5 top-5 z-50 hidden h-24 w-24 animate-spin-slow rounded-full bg-blue-800 md:block"
       />
     </div>
-
-    // <div className="grid grid-rows-2 md:h-screen md:grid-cols-2 md:grid-rows-1">
-    //   <Image
-    //     src="/images/scroll-icon.png"
-    //     alt="Scroll icon."
-    //     width={560}
-    //     height={560}
-    //     className="fixed right-5 top-5 z-50 hidden h-24 w-24 animate-spin-slow md:block"
-    //   />
-
-    //   <div className="overflow-y-auto px-2.5 pb-10 md:p-10">
-    //     <h1 className="font-serif text-5xl font-bold md:text-7xl">
-    //       {project.title}
-    //     </h1>
-
-    //     <p className="mt-2.5 text-xl text-stone-700 md:text-2xl">
-    //       {project.summary}
-    //     </p>
-
-    //     <hr className="mt-5 border-t-2 border-blue-800" />
-
-    //     <DetailContainer label="Materiales" value={project.materials} />
-
-    //     {project.price && (
-    //       <PriceContainer
-    //         label="Precio"
-    //         value={project.price}
-    //         emailAddress="jserranopalencia@gmail.com"
-    //         emailSubject={`Encargar ${project.title}.`}
-    //         emailBody={`Hola, estoy interesado en encargar la construcción de un ${project.title}.`}
-    //         emailButtonLabel="Encargar"
-    //       />
-    //     )}
-
-    //     <DetailContainer label="Año" value={project.year} />
-
-    //     {project.stock && (
-    //       <StockContainer
-    //         label="Stock"
-    //         value={project.stock}
-    //         emailAddress="jserranopalencia@gmail.com"
-    //         emailSubject={`Reservar ${project.title}.`}
-    //         emailBody={`Hola, estoy interesado en reservar una de las unidades de ${project.title} que está en stock.`}
-    //         emailButtonLabel="Reservar"
-    //       />
-    //     )}
-
-    //     {project.description && (
-    //       <>
-    //         <hr className="mt-5 border-t-2 border-blue-800" />
-
-    //         <div>
-    //           {project.description && (
-    //             <div className="prose prose-lg mt-10">
-    //               <RichText content={project.description.raw.children} />
-    //             </div>
-    //           )}
-    //         </div>
-    //       </>
-    //     )}
-    //   </div>
-
-    //   <div className="col-span-1 row-start-1 flex gap-x-5 overflow-x-scroll md:row-start-auto md:h-full md:max-h-screen md:flex-col md:gap-y-10 md:overflow-y-hidden">
-    //     {project.images.map(
-    //       (img: { url: string; alt: string }, imgIdx: number) => (
-    //         <Image
-    //           key={imgIdx}
-    //           src={img.url}
-    //           alt={img.alt}
-    //           width={1080}
-    //           height={1080}
-    //           priority={imgIdx === 0 ? true : false}
-    //           className="bg-blue-800 object-cover object-center"
-
-    //           // className="h-auto w-screen bg-blue-800 object-cover md:w-full md:object-contain"
-    //         />
-    //       )
-    //     )}
-    //     <Image
-    //       src="/images/drag-icon.png"
-    //       alt="Drag icon."
-    //       width={560}
-    //       height={560}
-    //       className="absolute right-5 top-5 z-50 block h-16 w-16 animate-spin-slow md:hidden"
-    //     />
-    //   </div>
-    // </div>
   )
 }

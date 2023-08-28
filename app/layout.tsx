@@ -4,6 +4,7 @@ import "./globals.css"
 
 import type { Metadata } from "next"
 import localFont from "next/font/local"
+import { Analytics } from "@vercel/analytics/react"
 
 const sans = localFont({
   src: [
@@ -185,6 +186,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
+      <Analytics />
+
       <body className={`${sans.variable} ${serif.variable} font-sans`}>
         <Header />
         {children}
