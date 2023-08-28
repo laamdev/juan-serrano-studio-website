@@ -131,6 +131,7 @@ export default async function WorkPage({
         priority
         className="absolute right-5 top-5 z-50 block h-20 w-20 animate-spin-slow rounded-full bg-blue-800 md:hidden"
       />
+
       <div className="relative col-span-1 row-start-1 flex gap-x-5 overflow-x-auto md:row-start-auto md:flex-col md:gap-y-10 md:overflow-y-auto md:overflow-x-hidden">
         {project.images.map(
           (img: { url: string; alt: string }, imgIdx: number) => (
@@ -140,9 +141,9 @@ export default async function WorkPage({
               alt={img.alt}
               width={950}
               height={950}
+              // // sizes="(min-width: 780px) 50vw, 100vw"
               priority={imgIdx === 0 ? true : false}
-              sizes="(min-width: 780px) 50vw, calc(20vw - 16px)"
-              className="h-auto w-full bg-blue-800 object-cover object-center"
+              className="h-auto w-screen bg-blue-800 object-cover md:w-full md:object-contain"
             />
           )
         )}
