@@ -3,8 +3,18 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     remotePatterns: [
-      { hostname: "media.graphassets.com" },
-      { hostname: "res.cloudinary.com" },
+      {
+        protocol: "https",
+        hostname: "media.graphassets.com",
+      },
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+      },
+      {
+        protocol: "https",
+        hostname: "eu-central-1.graphassets.com",
+      },
     ],
   },
 }

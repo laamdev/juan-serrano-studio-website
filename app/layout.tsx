@@ -1,10 +1,11 @@
-import { Header } from "@/components/navigation/header"
-
 import "./globals.css"
 
 import type { Metadata } from "next"
 import localFont from "next/font/local"
 import { Analytics } from "@vercel/analytics/react"
+
+import { cn } from "@/lib/utils"
+import { Header } from "@/components/navigation/header"
 
 const sans = localFont({
   src: [
@@ -148,10 +149,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="es">
+    <html lang="es" className={cn(sans.variable, serif.variable, "font-sans")}>
       <Analytics />
 
-      <body className={`${sans.variable} ${serif.variable} font-sans`}>
+      <body>
         <Header />
         {children}
       </body>
