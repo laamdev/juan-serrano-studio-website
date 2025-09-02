@@ -18,7 +18,7 @@ export async function generateStaticParams() {
   }))
 }
 
-const getProjectBySlug = async (params: any) => {
+const getProjectBySlug = async (params: { slug: string }) => {
   const { project }: { project: any } = await client.request(projectQuery, {
     slug: params.slug,
   })
@@ -29,9 +29,9 @@ const getProjectBySlug = async (params: any) => {
 export async function generateMetadata({
   params,
 }: {
-  params: any
+  params: Promise<{ slug: string }>
 }): Promise<Metadata | undefined> {
-  const project = await getProjectBySlug(params)
+  const project = await getProjectBySlug(await params)
   if (!project) {
     return
   }
@@ -66,9 +66,9 @@ export async function generateMetadata({
 export default async function WorkPage({
   params,
 }: {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }) {
-  const project = await getProjectBySlug(params)
+  const project = await getProjectBySlug(await params)
   if (!project) notFound()
 
   return (
